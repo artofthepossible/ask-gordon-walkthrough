@@ -81,6 +81,7 @@ Watch the [gordon containerize demo video](https://www.loom.com/share/9cdc26fc4a
 Watch the [gordon Migrate Dockerfiles to use Docker Hardened Images (DHI) demo video]
 (https://www.loom.com/share/94b3da5938e54930bb50439658f459f8?sid=9df5d93f-7fd4-4a90-906c-2901260e56cc)
 ### Interactive Problem Solving
+Watch the [gordon Troubleshooting Docker Hardened Images (DHI) demo video](https://www.loom.com/share/ef2c90adacc54245aa8c35c55e234972?sid=a43382aa-a1c3-41ff-aad5-14cdd2f68d8d)
 
 Gordon provides:
 - **Step-by-step guidance**: Detailed instructions for complex tasks
