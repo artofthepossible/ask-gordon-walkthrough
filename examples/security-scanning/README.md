@@ -7,9 +7,6 @@ This example demonstrates how Gordon can help identify and fix security vulnerab
 Gordon can assist with:
 - Vulnerability scanning and analysis
 - Security best practices implementation
-- Configuration security reviews
-- Docker Hardened Images migration
-- Compliance recommendations
 
 ## Scenario 1: Basic Vulnerability Scanning
 
@@ -212,73 +209,12 @@ ARG DATABASE_PASSWORD=secret123
 ENV SECRET_PROVIDER=vault
 ENV VAULT_ADDR=https://vault.example.com
 ```
-
-### Example: Using Docker Secrets
-
-```yaml
-version: '3.8'
-services:
-  app:
-    image: my-app
-    secrets:
-      - api_key
-      - db_password
-    environment:
-      - API_KEY_FILE=/run/secrets/api_key
-      - DB_PASSWORD_FILE=/run/secrets/db_password
-
-secrets:
-  api_key:
-    external: true
-  db_password:
-    external: true
-```
-
 ## Scenario 5: Docker Hardened Images Migration
 
 ### Ask Gordon
 **Query**: "Help me migrate to Docker Hardened Images for better security"
 
-### Gordon's Migration Plan
-
-1. **Assessment**
-   ```bash
-   # Check current image
-   docker scout cves my-app:current
-   
-   # Analyze dependencies
-   docker run --rm my-app:current pip list
-   ```
-
-2. **Select Hardened Base**
-   ```dockerfile
-   # FROM python:3.11-slim
-   FROM cgr.dev/chainguard/python:latest-dev AS builder
-   
-   # Multi-stage build for hardened production
-   FROM cgr.dev/chainguard/python:latest AS production
-   ```
-
-3. **Test Compatibility**
-   ```bash
-   # Build with hardened image
-   docker build -t my-app:hardened .
-   
-   # Test functionality
-   docker run --rm my-app:hardened python -c "import sys; print(sys.version)"
-   ```
-
-4. **Performance Comparison**
-   ```bash
-   # Compare image sizes
-   docker images | grep my-app
-   
-   # Compare vulnerability counts
-   docker scout cves my-app:current
-   docker scout cves my-app:hardened
-   ```
-
-## Security Best Practices Gordon Teaches
+## Security Best Practices 
 
 ### 1. Principle of Least Privilege
 - Use non-root users
@@ -293,7 +229,7 @@ secrets:
 - Multi-stage builds for production
 
 ### 3. Runtime Security
-- Security contexts in Kubernetes
+- Consider Security controls in your in Managed Kubernetes Solution
 - AppArmor/SELinux profiles
 - Network policies
 - Resource limits
@@ -303,113 +239,3 @@ secrets:
 - Use secret management systems
 - Rotate secrets regularly
 - Audit secret access
-
-## Interactive Security Review
-
-### Ask Gordon for a Complete Security Audit
-
-**Query**: "Can you perform a comprehensive security review of my Docker setup?"
-
-Gordon will examine:
-
-1. **Dockerfile Security**
-   - Base image vulnerabilities
-   - Package management
-   - User privileges
-   - File permissions
-
-2. **Runtime Configuration**
-   - Docker Compose security
-   - Environment variables
-   - Volume mounts
-   - Network exposure
-
-3. **Infrastructure Security**
-   - Container orchestration
-   - Network policies
-   - Access controls
-   - Monitoring setup
-
-4. **Compliance Requirements**
-   - Industry standards (PCI, HIPAA, SOC2)
-   - Regulatory compliance
-   - Security benchmarks
-   - Audit requirements
-
-## Security Scanning Tools Gordon Recommends
-
-### Built-in Docker Scout
-```bash
-# Enable Docker Scout
-docker scout enroll
-
-# Scan for vulnerabilities
-docker scout cves my-image:tag
-
-# View recommendations
-docker scout recommendations my-image:tag
-```
-
-### Third-party Security Tools
-```bash
-# Trivy
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-  aquasec/trivy image my-image:tag
-
-# Snyk
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-  snyk/snyk:docker test my-image:tag
-
-# Anchore
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-  anchore/grype my-image:tag
-```
-
-## Monitoring and Alerting
-
-### Ask Gordon about Security Monitoring
-
-**Query**: "How can I monitor my containers for security issues in production?"
-
-Gordon's recommendations:
-- Runtime security monitoring
-- Vulnerability scanning automation
-- Security event logging
-- Compliance reporting
-- Incident response procedures
-
-## Security Checklist from Gordon
-
-### Pre-deployment
-- [ ] Vulnerability scan passed
-- [ ] No hardcoded secrets
-- [ ] Non-root user configured
-- [ ] Minimal package installation
-- [ ] Security contexts defined
-
-### Runtime
-- [ ] Network policies in place
-- [ ] Resource limits configured
-- [ ] Logging enabled
-- [ ] Monitoring active
-- [ ] Access controls enforced
-
-### Ongoing
-- [ ] Regular vulnerability scans
-- [ ] Security patches applied
-- [ ] Secret rotation
-- [ ] Audit logs reviewed
-- [ ] Compliance verified
-
-## Common Security Issues Gordon Identifies
-
-1. **Vulnerable base images**
-2. **Hardcoded secrets**
-3. **Running as root**
-4. **Excessive privileges**
-5. **Insecure network exposure**
-6. **Missing security updates**
-7. **Weak access controls**
-8. **Insufficient monitoring**
-
-Remember: Security is an ongoing process, not a one-time check. Regularly ask Gordon to review your security posture!

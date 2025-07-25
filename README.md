@@ -70,7 +70,7 @@ ask-gordon-walkthrough/
 Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests to help improve this walkthrough.
 Disclaimer:
 By using this tutorial, you acknowledge that:
-The Author is Not Responsible for any containers that achieve sentience and demand rights
+The Author is Not Responsible for any containers that achieve sentience and demand rights. This is an AI-powered tutorial and and may not always get things right. Let us know how it's doing by giving a thumbs up or thumbs down.
 
 
 ## 📄 License

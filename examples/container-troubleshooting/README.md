@@ -74,7 +74,7 @@ docker stop <conflicting_container>
 
 ### The Problem
 ```bash
-$ docker run -v /host/data:/app/data my-app
+$ docker run -v /foo/dollar:/app/data my-app
 # Error: permission denied
 ```
 
@@ -85,16 +85,16 @@ $ docker run -v /host/data:/app/data my-app
 
 ```bash
 # 1. Check host directory permissions
-ls -la /host/data
+ls -la /foo/dollar
 
 # 2. Check container user
 docker run my-app id
 
 # 3. Fix permissions on host
-sudo chown -R $(id -u):$(id -g) /host/data
+sudo chown -R $(id -u):$(id -g) /foo/dollar
 
 # 4. Or run container with correct user
-docker run --user $(id -u):$(id -g) -v /host/data:/app/data my-app
+docker run --user $(id -u):$(id -g) -v /foo/dollar:/app/data my-app
 
 # 5. Alternative: use named volumes
 docker volume create my-data
