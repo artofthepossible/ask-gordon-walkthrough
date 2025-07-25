@@ -68,6 +68,10 @@ ask-gordon-walkthrough/
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests to help improve this walkthrough.
+Disclaimer:
+By using this tutorial, you acknowledge that:
+The Author is Not Responsible for any containers that achieve sentience and demand rights
+
 
 ## 📄 License
 

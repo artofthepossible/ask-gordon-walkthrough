@@ -14,7 +14,7 @@ Gordon can analyze your Dockerfiles and provide optimization suggestions:
 - **Size reduction**: Removing unnecessary packages and files
 
 **Example Use Cases:**
-- "Can you optimize this Dockerfile for production?"
+- "Can you optimize this Dockerfile?"
 - "How can I make my Docker image smaller?"
 - "What security improvements can I make?"
 
@@ -44,7 +44,7 @@ Work more effectively with Docker images:
 
 **Example Use Cases:**
 - "What's in this Docker image?"
-- "How should I tag my images for production?"
+- "How should I tag my images?"
 - "Can you explain this image's layer structure?"
 
 ### 4. Vulnerability and Configuration Analysis 🔒
