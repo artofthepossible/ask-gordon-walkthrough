@@ -76,7 +76,10 @@ Assistance with migrating to Docker's hardened base images:
 - "How do I test my app with hardened base images?"
 
 ## Advanced Capabilities
+Watch the [gordon containerize demo video](https://www.loom.com/share/9cdc26fc4a5447f8a3ac7d537a75b834?sid=d2b3dcd6-7e4f-4f5d-82e8-a9c558f1a7c7)
 
+Watch the [gordon Migrate Dockerfiles to use Docker Hardened Images (DHI) demo video]
+(https://www.loom.com/share/94b3da5938e54930bb50439658f459f8?sid=9df5d93f-7fd4-4a90-906c-2901260e56cc)
 ### Interactive Problem Solving
 
 Gordon provides:
