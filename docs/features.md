@@ -126,7 +126,6 @@ Use Gordon to:
 While Gordon is powerful, keep in mind:
 - Requires Docker Desktop 4.38.0+
 - Not enabled by default
-- May need internet connectivity for some features
 - Responses are based on available training data
 
 ## Getting the Most Out of Gordon
