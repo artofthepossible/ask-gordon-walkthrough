@@ -15,9 +15,8 @@ Gordon, also known as "Ask Gordon," is a personal AI assistant embedded in Docke
 Gordon can assist with:
 - **Improving Dockerfiles** - Get suggestions for optimization and best practices
 - **Running and troubleshooting containers** - Debug issues and get solutions
-- **Interacting with images and code** - Understand and work with Docker images
 - **Finding vulnerabilities or configuration issues** - Security and configuration analysis
-- **Migrating Dockerfiles to use Docker Hardened Images (DHI)** - Enhanced security implementations
+- **Migrating Dockerfiles to use Docker Hardened Images (DHI)** 
 
 ## 🚀 Getting Started
 
