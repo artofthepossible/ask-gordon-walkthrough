@@ -19,9 +19,6 @@ Gordon can assist with:
 # Gordon might suggest using Docker Scout
 docker scout cves my-app:latest
 
-# Or other scanning tools
-docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
-  aquasec/trivy image my-app:latest
 ```
 
 ### Sample Vulnerability Report Analysis
@@ -33,7 +30,7 @@ HIGH SEVERITY VULNERABILITIES FOUND:
 - CVE-2023-9012: Python library vulnerability
 
 RECOMMENDATIONS:
-1. Update base image to latest version
+1. Update base image to docker hardened image - latest version
 2. Remove unnecessary packages
 3. Update vulnerable dependencies
 ```
@@ -67,54 +64,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 ### Ask Gordon
 **Query**: "Can you review my Docker configuration for security issues?"
-
-### Sample Docker Compose Analysis
-
-```yaml
-# BEFORE: Insecure configuration
-version: '3.8'
-services:
-  web:
-    image: my-app
-    ports:
-      - "80:8080"
-    volumes:
-      - /:/host  # ❌ Dangerous: mounting entire host filesystem
-    environment:
-      - DATABASE_PASSWORD=secret123  # ❌ Hardcoded password
-    privileged: true  # ❌ Unnecessary privileges
-    user: root  # ❌ Running as root
-```
-
-### Gordon's Secure Configuration
-
-```yaml
-# AFTER: Secure configuration
-version: '3.8'
-services:
-  web:
-    image: my-app
-    ports:
-      - "8080:8080"  # ✅ Non-privileged port
-    volumes:
-      - ./app-data:/app/data:ro  # ✅ Specific mount, read-only
-    environment:
-      - DATABASE_PASSWORD_FILE=/run/secrets/db_password  # ✅ Using secrets
-    secrets:
-      - db_password
-    user: "1000:1000"  # ✅ Non-root user
-    read_only: true  # ✅ Read-only filesystem
-    security_opt:
-      - no-new-privileges:true  # ✅ Security options
-    cap_drop:
-      - ALL  # ✅ Drop all capabilities
-    cap_add:
-      - NET_BIND_SERVICE  # ✅ Add only needed capabilities
-
-secrets:
-  db_password:
-    file: ./secrets/db_password.txt
-```
 
 ## Scenario 3: Dockerfile Security Hardening
 
